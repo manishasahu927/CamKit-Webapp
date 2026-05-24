@@ -1900,6 +1900,10 @@
    ============================================ */
 .footer {
   background-color: var(--color-dark);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
   color: var(--color-white);
   padding: 4rem 0 0;
   position: relative;
@@ -1963,10 +1967,10 @@
 }
 
 .footer__logo {
-  font-size: clamp(4rem, 18vw, 18rem);
+  font-size: clamp(4rem, 23vw, 24rem);
   font-weight: var(--fw-black);
   line-height: 0.85;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em;
   margin-top: 4.5rem;
   margin-bottom: -4rem;
   position: relative;

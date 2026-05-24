@@ -760,7 +760,8 @@
   }
 
   .footer__column-title {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
   }
 
   .footer__list a,
@@ -771,23 +772,37 @@
 
   .footer__copyright,
   .footer__credits {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+    white-space: nowrap;
   }
 
   .footer__logo {
-    font-size: clamp(3rem, 23vw, 8rem);
+    font-size: clamp(4rem, 30vw, 12rem);
     line-height: 0.9;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.06em;
     margin-top: 3rem;
-    margin-bottom: -2.5rem;
-    max-width: 100%;
+    margin-bottom: -3rem;
+    margin-left: calc(-1 * var(--container-padding));
+    margin-right: calc(-1 * var(--container-padding));
     display: block;
+    width: 100vw;
   }
 
   .footer__brand {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    overflow: hidden;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .whatsapp-btn {
+    bottom: 6rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .whatsapp-btn img {
+    width: 20px;
+    height: 20px;
   }
 
   .stat-v4__num {
