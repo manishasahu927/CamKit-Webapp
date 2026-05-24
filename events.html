@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CamKit Events - Professional wedding, corporate, and portrait photography services in Bengaluru.">
+  <title>Events | CamKit Photography Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/Logo.svg">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="CamKit home">
+        <img src="assets/icons/Logo.svg" alt="CamKit" class="logo__img">
+        
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link" data-label="rentals"><span class="nav__link-text">rentals</span></a>
+        <a href="events.html" class="nav__link active" data-label="events"><span class="nav__link-text">events</span></a>
+        <a href="about.html" class="nav__link" data-label="about"><span class="nav__link-text">about</span></a>
+      </nav>
+
+      <a href="index.html#cart" class="cart-btn">
+        <img src="assets/icons/Cart.svg" alt="">
+        <span class="cart-btn__label">cart</span>
+        <span class="cart-btn__count" id="cartCount">0</span>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Events Hero -->
+  <section class="events-hero-v2">
+    <div class="container">
+      <h1 class="events-hero-v2__title">capture the<br><span class="text-orange">moment</span></h1>
+      <p class="events-hero-v2__subtitle">our in-house team handles weddings, corporate events, and portrait sessions end-to-end. tell us what you need below.</p>
+    </div>
+  </section>
+
+  <!-- Event Type Selector -->
+  <section class="container">
+    <div class="event-config">
+      <div class="event-config__section">
+        <span class="step-label">EVENT TYPE</span>
+        <div class="chip-group" data-group="event-type">
+          <button class="chip chip--active" data-value="wedding">wedding</button>
+          <button class="chip" data-value="prewedding">pre-wedding</button>
+          <button class="chip" data-value="corporate">corporate</button>
+          <button class="chip" data-value="portrait">portrait</button>
+          <button class="chip" data-value="portfolio">portfolio</button>
+        </div>
+      </div>
+
+      <div class="event-config__section">
+        <span class="step-label">DURATION</span>
+        <div class="duration-slider">
+          <input type="range" min="2" max="48" value="6" step="1" id="durationSlider" class="duration-slider__input">
+          <div class="duration-slider__labels">
+            <span>2 hrs</span>
+            <span class="duration-slider__current" id="durationDisplay">6 hrs</span>
+            <span>48 hrs (2 days)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-config__section">
+        <span class="step-label">ADD-ONS</span>
+        <div class="chip-group" data-group="addons" data-multi="true">
+          <button class="chip chip--active" data-value="drone">drone coverage</button>
+          <button class="chip chip--active" data-value="raw">raw footage</button>
+          <button class="chip" data-value="album">premium album</button>
+          <button class="chip chip--active" data-value="2nd">2nd photographer</button>
+          <button class="chip" data-value="reel">same-day reel</button>
+          <button class="chip" data-value="highlights">highlights film</button>
+        </div>
+      </div>
+
+      <div class="event-config__section">
+        <span class="step-label">LOCATION</span>
+        <div class="chip-group" data-group="location">
+          <button class="chip chip--active" data-value="bengaluru">bengaluru</button>
+          <button class="chip" data-value="karnataka">within karnataka</button>
+          <button class="chip" data-value="outstation">outstation</button>
+        </div>
+      </div>
+
+      <button class="confirm-booking-btn event-config__cta" id="eventConsultBtn">
+        send consultation request via Whatsapp
+        <img src="assets/icons/Arrow.svg" alt="">
+      </button>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio">
+    <div class="container">
+      <div class="portfolio__header">
+        <div>
+          <span class="step-label">PORTFOLIO</span>
+          <h2 class="portfolio__title">our work</h2>
+        </div>
+        <div class="portfolio__filters">
+          <span class="portfolio__filter portfolio__filter--active">weddings</span>
+          <span class="portfolio__filter">corporates</span>
+          <span class="portfolio__filter">portraits</span>
+        </div>
+      </div>
+
+      <div class="portfolio__grid">
+        <img src="assets/about/Rectangle 56.png" alt="Wedding photo" class="portfolio__item portfolio__item--tall">
+        <img src="assets/about/Rectangle 57.png" alt="Wedding moment" class="portfolio__item">
+        <img src="assets/about/Rectangle 59.png" alt="Couple shoot" class="portfolio__item">
+        <img src="assets/about/Rectangle 62.png" alt="Studio portrait" class="portfolio__item portfolio__item--tall">
+        <img src="assets/about/Rectangle 64.png" alt="Event coverage" class="portfolio__item">
+        <img src="assets/about/Rectangle 77.png" alt="Wedding ritual" class="portfolio__item">
+        <img src="assets/about/Rectangle 79.png" alt="Corporate event" class="portfolio__item">
+        <img src="assets/about/Rectangle 80.png" alt="Portrait session" class="portfolio__item portfolio__item--tall">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__column">
+          <h3 class="footer__column-title">CAMKIT RENTALS</h3>
+          <ul class="footer__list">
+            <li><a href="index.html">cameras</a></li>
+            <li><a href="index.html">lenses & filters</a></li>
+            <li><a href="index.html">lighting kits</a></li>
+            <li><a href="index.html">audio gears</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h3 class="footer__column-title">CAMKIT EVENTS</h3>
+          <ul class="footer__list">
+            <li><a href="events.html">wedding photography</a></li>
+            <li><a href="events.html">corporate events</a></li>
+            <li><a href="events.html">pre-wedding shoots</a></li>
+            <li><a href="events.html">portrait sessions</a></li>
+            <li><a href="events.html">portfolio</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column contact-col">
+          <h3 class="footer__column-title">CONTACT</h3>
+          <div class="footer__contact">
+            <div class="footer__contact-row"><span>jp nagar phase 5</span></div>
+            <div class="footer__contact-row"><span>bengaluru, karnataka</span></div>
+            <div class="footer__contact-row"><span>+ 91 82960 75277</span></div>
+            <div class="footer__contact-row"><span>camkitr@gmail.com</span></div>
+          </div>
+        </div>
+
+        <div class="footer__column company-col">
+          <h3 class="footer__column-title">COMPANY</h3>
+          <ul class="footer__list">
+            <li><a href="about.html">about us</a></li>
+            <li><a href="#">privacy policy</a></li>
+            <li><a href="#">terms of service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__brand">
+        <div class="footer__logo">CamKit</div>
+        <div class="footer__bottom-row">
+          <p class="footer__copyright">©2026 camkit rentals &amp; events. all rights reserved</p>
+          <p class="footer__credits">Designed by <a href="#" class="footer__credit-link">Mayur Acharya</a> <span class="footer__credit-dot">•</span> Developed by <a href="#" class="footer__credit-link">Manisha Sahu</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/918296075277" class="whatsapp-btn" target="_blank" rel="noopener">
+    <img src="assets/icons/WhatsApp.svg" alt="">
+  </a>
+
+  <script>
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      const nav = document.getElementById('nav');
+      const isOpen = nav.classList.toggle('open');
+      this.classList.toggle('active');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    window.addEventListener('scroll', () => {
+      const h = document.getElementById('header');
+      if (window.scrollY > 20) h.classList.add('scrolled');
+      else h.classList.remove('scrolled');
+    }, { passive: true });
+
+    try {
+      const cart = JSON.parse(localStorage.getItem('camkit_cart') || '[]');
+      document.getElementById('cartCount').textContent = cart.length;
+    } catch(e) {}
+
+    // Chip groups
+    document.querySelectorAll('.chip-group').forEach(group => {
+      const isMulti = group.dataset.multi === 'true';
+      group.querySelectorAll('.chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          if (isMulti) {
+            chip.classList.toggle('chip--active');
+          } else {
+            group.querySelectorAll('.chip').forEach(c => c.classList.remove('chip--active'));
+            chip.classList.add('chip--active');
+          }
+        });
+      });
+    });
+
+    // Duration slider
+    const slider = document.getElementById('durationSlider');
+    const display = document.getElementById('durationDisplay');
+    function fmtDur(v) {
+      v = parseInt(v);
+      if (v < 24) return `${v} hrs`;
+      const d = Math.floor(v / 24);
+      const h = v % 24;
+      return h ? `${d} day${d>1?'s':''} ${h} hrs` : `${d} day${d>1?'s':''}`;
+    }
+    if (slider && display) {
+      slider.addEventListener('input', () => display.textContent = fmtDur(slider.value));
+    }
+
+    // Consultation button
+    document.getElementById('eventConsultBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const eventType = document.querySelector('[data-group="event-type"] .chip--active')?.dataset.value || '';
+      const duration = slider.value;
+      const addons = Array.from(document.querySelectorAll('[data-group="addons"] .chip--active')).map(c => c.textContent.trim()).join(', ');
+      const location = document.querySelector('[data-group="location"] .chip--active')?.textContent.trim() || '';
+
+      const msg = `Hi CamKit! I'd like a consultation for an event:%0A%0A*Type:* ${eventType}%0A*Duration:* ${fmtDur(duration)}%0A*Add-ons:* ${addons || 'none'}%0A*Location:* ${location}%0A%0Aplease share availability and pricing.`;
+      window.open(`https://wa.me/918296075277?text=${msg}`, '_blank');
+    });
+  </script>
+  <script src="js/btn-slide.js"></script>
+</body>
+</html>

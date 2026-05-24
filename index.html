@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CamKit Rentals & Events - Your trusted partner for camera and equipment rentals in Bengaluru. Professional photography services for weddings, events, and corporate shoots.">
+  <title>CamKit Rentals & Events | Camera & Equipment Rentals Bengaluru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/Logo.svg">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="CamKit home">
+        <img src="assets/icons/Logo.svg" alt="CamKit" class="logo__img">
+        
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link active" data-label="rentals"><span class="nav__link-text">rentals</span></a>
+        <a href="index.html#events" class="nav__link" data-label="events"><span class="nav__link-text">events</span></a>
+        <a href="about.html" class="nav__link" data-label="about"><span class="nav__link-text">about</span></a>
+      </nav>
+
+      <button class="cart-btn" id="cartToggle" aria-label="View cart">
+        <img src="assets/icons/Cart.svg" alt="">
+        <span class="cart-btn__label">cart</span>
+        <span class="cart-btn__count" id="cartCount">0</span>
+      </button>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            <span class="hero__line-1">your trusted</span>
+            <span class="hero__line-2">partner for</span>
+            <span class="hero__line-3"><span class="hero__title-accent" id="heroAccent" data-words="kit rentals,weddings,lenses,photography,lighting">kit rentals</span></span>
+          </h1>
+          <p class="hero__description">
+            Whether you need industry-standard equipment for your own shoot or a dedicated professional team to capture your big day, we have you covered. Choose your path below.
+          </p>
+
+          <div class="hero__rating-wrap">
+            <img src="assets/images/star-orange.png" alt="" class="hero__star-orange" aria-hidden="true">
+
+            <div class="hero__rating-card">
+              <img src="assets/images/paperclip.png" alt="" class="hero__paperclip" aria-hidden="true">
+              <div class="hero__avatars">
+                <div class="hero__avatar"></div>
+                <div class="hero__avatar"></div>
+                <div class="hero__avatar"></div>
+              </div>
+              <div class="hero__rating-content">
+                <div class="hero__rating-score">5.0 <img src="assets/icons/Star.svg" alt="" class="rating-star"></div>
+                <p class="hero__rating-text">"Great rental experience. The camera was in excellent condition and the pricing was genuinely affordable. Highly recommend."</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <img src="assets/icons/Pointer arrow.svg" alt="" class="hero__pointer-arrow" aria-hidden="true">
+
+        <div class="hero__image-wrap">
+          <img src="assets/images/star-pink.png" alt="" class="hero__star-pink" aria-hidden="true">
+          <img src="assets/images/hero.png" alt="Professional camera in hands" class="hero__image">
+        </div>
+      </div>
+
+      <div class="hero__toggle" role="tablist" data-active="rentals">
+        <button class="hero__toggle-btn active" data-tab="rentals" role="tab" aria-selected="true"><span class="hero__toggle-btn-text">rentals</span></button>
+        <button class="hero__toggle-btn" data-tab="events" role="tab" aria-selected="false"><span class="hero__toggle-btn-text">events</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Panels -->
+  <div class="tab-panel tab-panel--rentals" id="rentalsPanel">
+
+  <!-- Step 1: Choose Dates -->
+  <section class="step-section">
+    <div class="container">
+      <div class="step-label">STEP 1</div>
+      <h2 class="step-title">choose your dates</h2>
+
+      <div class="date-picker-row">
+        <div class="date-input-wrap">
+          <span class="date-input-label">PICK-UP DATE</span>
+          <div class="date-input-row">
+            <img src="assets/icons/Calender.svg" alt="" class="date-input-row-icon">
+            <span class="date-input-display" id="pickupDateDisplay">21 Apr</span>
+          </div>
+          <div class="date-input-bottom">
+            <span class="date-input-format">mm/dd/yyyy</span>
+            <img src="assets/icons/Calender.svg" alt="" class="date-input-icon">
+          </div>
+          <input type="date" id="pickupDate" aria-label="Pick-up date">
+        </div>
+
+        <div class="date-input-wrap">
+          <span class="date-input-label">DROP-OFF DATE</span>
+          <div class="date-input-row">
+            <img src="assets/icons/Calender.svg" alt="" class="date-input-row-icon">
+            <span class="date-input-display" id="dropoffDateDisplay">22 Apr</span>
+          </div>
+          <div class="date-input-bottom">
+            <span class="date-input-format">mm/dd/yyyy</span>
+            <img src="assets/icons/Calender.svg" alt="" class="date-input-icon">
+          </div>
+          <input type="date" id="dropoffDate" aria-label="Drop-off date">
+        </div>
+
+        <div class="duration-badge">
+          <span class="duration-badge__label">DURATION</span>
+          <span class="duration-badge__value"><span id="duration">1</span> days</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2: Select Gear -->
+  <section class="step-section">
+    <div class="container">
+      <div class="step-label">STEP 2</div>
+      <h2 class="step-title">select your gear</h2>
+
+      <div class="category-tabs" role="tablist">
+        <button class="category-tab active" data-category="all" role="tab">All</button>
+        <button class="category-tab" data-category="cameras" role="tab">Cameras</button>
+        <button class="category-tab" data-category="lenses" role="tab">Lenses</button>
+        <button class="category-tab" data-category="lighting" role="tab">Lighting</button>
+        <button class="category-tab" data-category="audio" role="tab">Audio</button>
+        <button class="category-tab" data-category="other" role="tab">other equipments</button>
+      </div>
+
+      <div class="products-layout">
+        <div>
+          <div class="products-grid" id="productsGrid"></div>
+          <a href="gear.html" class="view-more-btn">view more <img src="assets/icons/Arrow.svg" alt=""></a>
+        </div>
+
+        <aside class="cart-sidebar" id="cartSidebar">
+          <div class="cart-sidebar__title">YOUR CART</div>
+
+          <div class="cart-items" id="cartItems">
+            <div class="cart-empty">Your cart is empty</div>
+          </div>
+
+          <div class="cart-totals">
+            <div class="cart-total-row">
+              <span class="cart-total-row__label">Total Products</span>
+              <span class="cart-total-row__value cart-total-row__value--orange"><span id="totalProducts">0</span> Products</span>
+            </div>
+            <div class="cart-total-row">
+              <span class="cart-total-row__label cart-total-row__label--muted">total days</span>
+              <span class="cart-total-row__value"><span id="totalDays">1</span> day</span>
+            </div>
+          </div>
+
+          <button class="confirm-booking-btn" id="confirmBookingBtn" disabled>confirm booking <img src="assets/icons/Arrow.svg" alt=""></button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /rentals panel -->
+
+  <!-- Events Panel -->
+  <div class="tab-panel tab-panel--events hidden" id="eventsPanel">
+    <section class="container events-quote-section">
+      <div class="events-quote-header">
+        <span class="step-label">INSTANT ESTIMATE</span>
+        <h2 class="events-quote-heading">get a quote</h2>
+      </div>
+      <div class="events-card">
+        <div class="events-card__header">
+          <h3 class="events-card__title">camkit events &mdash; quote</h3>
+          <p class="events-card__subtitle">select the option below to get a quote.</p>
+        </div>
+
+        <div class="events-card__body">
+        <div class="events-card__section">
+          <span class="events-card__label">SELECT OPTION</span>
+          <div class="package-grid" data-group="package-type">
+            <button class="package-card package-card--active" data-value="photo">
+              <span class="package-card__title">photo only</span>
+              <span class="package-card__subtitle">1 photographer</span>
+            </button>
+            <button class="package-card" data-value="photovideo">
+              <span class="package-card__title">photo + video</span>
+              <span class="package-card__subtitle">2 person crew</span>
+            </button>
+            <button class="package-card" data-value="cinema">
+              <span class="package-card__title">cinema</span>
+              <span class="package-card__subtitle">full production</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="events-card__section">
+          <div class="events-card__row">
+            <span class="events-card__label">EVENT DURATION</span>
+            <span class="events-card__duration-value" id="durationDisplay">6 hours</span>
+          </div>
+          <div class="duration-slider duration-slider--dark">
+            <input type="range" min="2" max="48" value="6" step="1" id="durationSlider" class="duration-slider__input">
+          </div>
+        </div>
+
+        <div class="events-card__section">
+          <span class="events-card__label">ADD-ONS</span>
+          <div class="chip-group chip-group--dark events-card__chips" data-group="addons" data-multi="true">
+            <button class="chip chip--active" data-value="drone">drone coverage</button>
+            <button class="chip" data-value="raw">raw footage</button>
+            <button class="chip" data-value="album">premium album</button>
+            <button class="chip" data-value="2nd">2nd photographer</button>
+            <button class="chip chip--active" data-value="sameday">same-day reel</button>
+            <button class="chip" data-value="highlights">highlights film</button>
+          </div>
+        </div>
+
+        <div class="events-card__section">
+          <span class="events-card__label">LOCATION</span>
+          <div class="chip-group chip-group--dark events-card__chips" data-group="location">
+            <button class="chip chip--active" data-value="bengaluru">bengaluru</button>
+            <button class="chip" data-value="karnataka">within karnataka</button>
+            <button class="chip" data-value="outstation">outstation</button>
+          </div>
+        </div>
+
+        <button class="confirm-booking-btn events-card__cta" id="eventConsultBtn">
+          <img src="assets/icons/WhatsApp.svg" alt="" style="width: 14px; filter: brightness(0) invert(1);">
+          send consultation request via Whatsapp
+          <img src="assets/icons/Arrow.svg" alt="">
+        </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio">
+      <div class="container">
+        <div class="portfolio__header">
+          <div>
+            <span class="step-label">PORTFOLIO</span>
+            <h2 class="portfolio__title">our works</h2>
+          </div>
+          <div class="portfolio__filters">
+            <span class="portfolio__filter portfolio__filter--active">weddings</span>
+            <span class="portfolio__filter">corporates</span>
+            <span class="portfolio__filter">portraits</span>
+          </div>
+        </div>
+
+        <div class="portfolio__grid portfolio__grid--3col" id="portfolioGrid"></div>
+
+        <div class="portfolio__view-more-wrap">
+          <button class="portfolio__view-more">
+            <span class="portfolio__view-more-text">view more</span>
+            <img src="assets/icons/Arrow.svg" alt="">
+          </button>
+        </div>
+      </div>
+    </section>
+  </div><!-- /events panel -->
+
+  <!-- Product Details Modal -->
+  <div class="product-modal" id="productModal" hidden>
+    <div class="product-modal__backdrop" data-close></div>
+    <div class="product-modal__panel" role="dialog" aria-labelledby="pmTitle">
+      <button class="product-modal__close" data-close aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="product-modal__layout">
+        <div class="product-modal__image-wrap">
+          <span class="product-card__badge" id="pmBadge">CATEGORY</span>
+          <img id="pmImage" src="" alt="" class="product-modal__image">
+        </div>
+        <div class="product-modal__content">
+          <span class="step-label" id="pmCategory">CATEGORY</span>
+          <h2 class="product-modal__title" id="pmTitle">Product Name</h2>
+          <p class="product-modal__desc" id="pmDesc">Description.</p>
+          <div class="product-modal__specs" id="pmSpecs"></div>
+          <div class="product-modal__price-row">
+            <span class="product-modal__price-label">price per day</span>
+            <span class="product-modal__price-value" id="pmPrice">ask for price</span>
+          </div>
+          <button class="confirm-booking-btn product-modal__add" id="pmAddBtn">add to cart <img src="assets/icons/Arrow.svg" alt=""></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Lightbox -->
+  <div class="portfolio-lightbox" id="portfolioLightbox" hidden>
+    <div class="portfolio-lightbox__backdrop" data-lb-close></div>
+    <button class="portfolio-lightbox__close" data-lb-close aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="portfolio-lightbox__nav portfolio-lightbox__nav--prev" data-lb-prev aria-label="Previous">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="portfolio-lightbox__nav portfolio-lightbox__nav--next" data-lb-next aria-label="Next">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="portfolio-lightbox__stage" id="lbStage">
+      <div class="portfolio-lightbox__strip" id="lbStrip"></div>
+    </div>
+    <div class="portfolio-lightbox__caption">
+      <span class="portfolio-lightbox__shoot" id="lbShoot">Shoot</span>
+      <span class="portfolio-lightbox__counter" id="lbCounter">1 / 1</span>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cartModal" hidden>
+    <div class="cart-modal__backdrop" data-close></div>
+    <div class="cart-modal__panel" role="dialog" aria-label="Your cart">
+      <button class="cart-modal__close" data-close aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="cart-sidebar__title">YOUR CART</div>
+      <div class="cart-items" id="cartItemsModal">
+        <div class="cart-empty">Your cart is empty</div>
+      </div>
+      <div class="cart-totals">
+        <div class="cart-total-row">
+          <span class="cart-total-row__label">Total Products</span>
+          <span class="cart-total-row__value cart-total-row__value--orange"><span id="totalProductsModal">0</span> Products</span>
+        </div>
+        <div class="cart-total-row">
+          <span class="cart-total-row__label cart-total-row__label--muted">total days</span>
+          <span class="cart-total-row__value"><span id="totalDaysModal">1</span> day</span>
+        </div>
+      </div>
+      <button class="confirm-booking-btn" id="confirmBookingBtnModal" disabled>confirm booking <img src="assets/icons/Arrow.svg" alt=""></button>
+    </div>
+  </div>
+
+  <!-- Consultation Modal -->
+  <div class="consult-modal" id="consultModal" hidden>
+    <div class="consult-modal__backdrop" data-close></div>
+    <div class="consult-modal__panel" role="dialog" aria-labelledby="consultModalTitle">
+      <button class="consult-modal__close" data-close aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </button>
+      <span class="consult-modal__step">YOUR DETAILS</span>
+      <h3 class="consult-modal__title" id="consultModalTitle">name &amp; whatsapp number</h3>
+      <p class="consult-modal__hint">provide your details so that we could connect with you.</p>
+      <form class="consult-modal__form" id="consultForm">
+        <div class="consult-modal__row">
+          <input type="text" id="consultName" placeholder="full name" class="form-input" required>
+          <div class="form-input-prefix">
+            <span class="form-input-prefix__label">+91</span>
+            <input type="tel" id="consultPhone" placeholder="whatsapp number" class="form-input" required>
+          </div>
+        </div>
+        <button type="submit" class="confirm-booking-btn consult-modal__submit">
+          send
+          <img src="assets/icons/Arrow.svg" alt="">
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <div class="testimonials__label">TESTIMONIALS</div>
+        <h2 class="testimonials__title">read what our customers <span class="testimonials__title-accent">say about us.</span></h2>
+      </div>
+
+      <div class="testimonials__grid">
+        <article class="testimonial-card">
+          <div class="testimonial-card__avatar-wrap">
+            <img src="assets/avatars/avatar-1.svg" alt="Anuraj">
+          </div>
+          <p class="testimonial-card__text">
+            i had a fantastic experience renting from camkit. the process was incredibly smooth, from browsing their extensive selection of gear online to picking it up. the equipment rented was in pristine condition and worked perfectly for my project. the team was super knowledgeable, friendly, and went above and beyond.
+          </p>
+          <div class="testimonial-card__footer">
+            <div>
+              <div class="testimonial-card__name">Anuraj CV</div>
+              <div class="testimonial-card__time">7 months ago</div>
+            </div>
+            <div class="testimonial-card__rating">5.0 <img src="assets/icons/Star.svg" alt="" class="rating-star"></div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__avatar-wrap">
+            <img src="assets/avatars/avatar-2.svg" alt="Nithesh">
+          </div>
+          <p class="testimonial-card__text">
+            i rented an 80mm sony prime lens from camkit and it was a total win. the process as a whole was so smooth and the lens quality was spot-on too. the rates were very affordable and akshay, the owner, was really chill. i highly recommend this place!
+          </p>
+          <div class="testimonial-card__footer">
+            <div>
+              <div class="testimonial-card__name">Nithesh Balaji</div>
+              <div class="testimonial-card__time">a year ago</div>
+            </div>
+            <div class="testimonial-card__rating">5.0 <img src="assets/icons/Star.svg" alt="" class="rating-star"></div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__avatar-wrap">
+            <img src="assets/avatars/avatar-3.svg" alt="Sharath">
+          </div>
+          <p class="testimonial-card__text">
+            i needed camera on a very short notice, camkit arranged it within hours of calling them. it's an excellent choice to get any rental camera or lens from them. they also have a wide variety of camera accessories to choose from. they also have a dedicated team to capture any of your special event.
+          </p>
+          <div class="testimonial-card__footer">
+            <div>
+              <div class="testimonial-card__name">Sharath SK</div>
+              <div class="testimonial-card__time">4 months ago</div>
+            </div>
+            <div class="testimonial-card__rating">5.0 <img src="assets/icons/Star.svg" alt="" class="rating-star"></div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__avatar-wrap">
+            <img src="assets/avatars/avatar-4.svg" alt="Basava">
+          </div>
+          <p class="testimonial-card__text">
+            i had a very good experience with this camera rental service. the camera and lenses were clean, fully functional, and exactly as promised. the booking process was simple, and the team was very supportive throughout. worth the money.
+          </p>
+          <div class="testimonial-card__footer">
+            <div>
+              <div class="testimonial-card__name">Basavayashas</div>
+              <div class="testimonial-card__time">4 months ago</div>
+            </div>
+            <div class="testimonial-card__rating">5.0 <img src="assets/icons/Star.svg" alt="" class="rating-star"></div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__avatar-wrap">
+            <img src="assets/avatars/avatar-5.svg" alt="Sufi">
+          </div>
+          <p class="testimonial-card__text">
+            i had an incredible experience renting the canon 200d few weeks back. akshay was not only humble to make the process smooth but also helped us in making the right selection of camera according to our requirements and guided on ways to use it for best results. must check out if you're looking for cam rentals in the city.
+          </p>
+          <div class="testimonial-card__footer">
+            <div>
+              <div class="testimonial-card__name">Sufi</div>
+              <div class="testimonial-card__time">6 months ago</div>
+            </div>
+            <div class="testimonial-card__rating">5.0 <img src="assets/icons/Star.svg" alt="" class="rating-star"></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__column">
+          <h3 class="footer__column-title">CAMKIT RENTALS</h3>
+          <ul class="footer__list">
+            <li><a href="#">cameras</a></li>
+            <li><a href="#">lenses & filters</a></li>
+            <li><a href="#">lighting kits</a></li>
+            <li><a href="#">audio gears</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h3 class="footer__column-title">CAMKIT EVENTS</h3>
+          <ul class="footer__list">
+            <li><a href="index.html#events">wedding photography</a></li>
+            <li><a href="index.html#events">corporate events</a></li>
+            <li><a href="index.html#events">pre-wedding shoots</a></li>
+            <li><a href="index.html#events">portrait sessions</a></li>
+            <li><a href="index.html#events">portfolio</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column contact-col">
+          <h3 class="footer__column-title">CONTACT</h3>
+          <div class="footer__contact">
+            <div class="footer__contact-row">
+              <span>jp nagar phase 5</span>
+            </div>
+            <div class="footer__contact-row">
+              <span>bengaluru, karnataka</span>
+            </div>
+            <div class="footer__contact-row">
+              <span>+ 91 82960 75277</span>
+            </div>
+            <div class="footer__contact-row">
+              <span>camkitr@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__column company-col">
+          <h3 class="footer__column-title">COMPANY</h3>
+          <ul class="footer__list">
+            <li><a href="about.html">about us</a></li>
+            <li><a href="privacy.html">privacy policy</a></li>
+            <li><a href="terms.html">terms of service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__brand">
+        <div class="footer__logo">CamKit</div>
+        <div class="footer__bottom-row">
+          <p class="footer__copyright">©2026 camkit rentals &amp; events. all rights reserved</p>
+          <p class="footer__credits">Designed by <a href="#" class="footer__credit-link">Mayur Acharya</a> <span class="footer__credit-dot">•</span> Developed by <a href="#" class="footer__credit-link">Manisha Sahu</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/918296075277" class="whatsapp-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+    <img src="assets/icons/WhatsApp.svg" alt="">
+  </a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/portfolio.js"></script>
+  <svg class="goo-filter-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="goo"></feColorMatrix>
+        <feBlend in="SourceGraphic" in2="goo" result="mix"></feBlend>
+      </filter>
+    </defs>
+  </svg>
+  <script src="js/btn-slide.js"></script>
+  <script src="js/blob-anim.js"></script>
+  <script src="js/datepicker.js"></script>
+</body>
+</html>

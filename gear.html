@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all CamKit rental gear - cameras, lenses, lighting, audio, and more.">
+  <title>All Gear | CamKit Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/Logo.svg">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="CamKit home">
+        <img src="assets/icons/Logo.svg" alt="CamKit" class="logo__img">
+        
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link active" data-label="rentals"><span class="nav__link-text">rentals</span></a>
+        <a href="index.html#events" class="nav__link" data-label="events"><span class="nav__link-text">events</span></a>
+        <a href="about.html" class="nav__link" data-label="about"><span class="nav__link-text">about</span></a>
+      </nav>
+
+      <button class="cart-btn" id="cartToggle" aria-label="View cart">
+        <img src="assets/icons/Cart.svg" alt="">
+        <span class="cart-btn__label">cart</span>
+        <span class="cart-btn__count" id="cartCount">0</span>
+      </button>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Gear Page Header -->
+  <section class="gear-hero">
+    <div class="container">
+      <a href="index.html" class="booking-back-btn" aria-label="Back to home">
+        <img src="assets/icons/Back.svg" alt="">
+      </a>
+      <span class="step-label">CAMKIT RENTALS</span>
+      <h1 class="gear-hero__title">all the <span class="text-orange">gear</span> you need</h1>
+      <p class="gear-hero__subtitle">browse our entire inventory of professional camera equipment, lenses, lighting and accessories.</p>
+    </div>
+  </section>
+
+  <!-- Categories + Products -->
+  <section class="step-section">
+    <div class="container">
+      <div class="category-tabs" role="tablist">
+        <button class="category-tab active" data-category="all" role="tab">All</button>
+        <button class="category-tab" data-category="cameras" role="tab">Cameras</button>
+        <button class="category-tab" data-category="lenses" role="tab">Lenses</button>
+        <button class="category-tab" data-category="lighting" role="tab">Lighting</button>
+        <button class="category-tab" data-category="audio" role="tab">Audio</button>
+        <button class="category-tab" data-category="other" role="tab">other equipments</button>
+      </div>
+
+      <div class="gear-layout">
+        <div class="products-grid products-grid--full" id="productsGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__column">
+          <h3 class="footer__column-title">CAMKIT RENTALS</h3>
+          <ul class="footer__list">
+            <li><a href="#">cameras</a></li>
+            <li><a href="#">lenses & filters</a></li>
+            <li><a href="#">lighting kits</a></li>
+            <li><a href="#">audio gears</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h3 class="footer__column-title">CAMKIT EVENTS</h3>
+          <ul class="footer__list">
+            <li><a href="index.html#events">wedding photography</a></li>
+            <li><a href="index.html#events">corporate events</a></li>
+            <li><a href="index.html#events">pre-wedding shoots</a></li>
+            <li><a href="index.html#events">portrait sessions</a></li>
+            <li><a href="index.html#events">portfolio</a></li>
+          </ul>
+        </div>
+        <div class="footer__column contact-col">
+          <h3 class="footer__column-title">CONTACT</h3>
+          <div class="footer__contact">
+            <div class="footer__contact-row"><span>jp nagar phase 5</span></div>
+            <div class="footer__contact-row"><span>bengaluru, karnataka</span></div>
+            <div class="footer__contact-row"><span>+ 91 82960 75277</span></div>
+            <div class="footer__contact-row"><span>camkitr@gmail.com</span></div>
+          </div>
+        </div>
+        <div class="footer__column company-col">
+          <h3 class="footer__column-title">COMPANY</h3>
+          <ul class="footer__list">
+            <li><a href="about.html">about us</a></li>
+            <li><a href="privacy.html">privacy policy</a></li>
+            <li><a href="terms.html">terms of service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__brand">
+        <div class="footer__logo">CamKit</div>
+        <div class="footer__bottom-row">
+          <p class="footer__copyright">©2026 camkit rentals &amp; events. all rights reserved</p>
+          <p class="footer__credits">Designed by <a href="#" class="footer__credit-link">Mayur Acharya</a> <span class="footer__credit-dot">•</span> Developed by <a href="#" class="footer__credit-link">Manisha Sahu</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Details Modal -->
+  <div class="product-modal" id="productModal" hidden>
+    <div class="product-modal__backdrop" data-close></div>
+    <div class="product-modal__panel" role="dialog" aria-labelledby="pmTitle">
+      <button class="product-modal__close" data-close aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="product-modal__layout">
+        <div class="product-modal__image-wrap">
+          <span class="product-card__badge" id="pmBadge">CATEGORY</span>
+          <img id="pmImage" src="" alt="" class="product-modal__image">
+        </div>
+        <div class="product-modal__content">
+          <span class="step-label" id="pmCategory">CATEGORY</span>
+          <h2 class="product-modal__title" id="pmTitle">Product Name</h2>
+          <p class="product-modal__desc" id="pmDesc">Description.</p>
+          <div class="product-modal__specs" id="pmSpecs"></div>
+          <div class="product-modal__price-row">
+            <span class="product-modal__price-label">price per day</span>
+            <span class="product-modal__price-value" id="pmPrice">ask for price</span>
+          </div>
+          <button class="confirm-booking-btn product-modal__add" id="pmAddBtn">add to cart <img src="assets/icons/Arrow.svg" alt=""></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/918296075277" class="whatsapp-btn" target="_blank" rel="noopener">
+    <img src="assets/icons/WhatsApp.svg" alt="">
+  </a>
+
+  <svg class="goo-filter-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="goo"></feColorMatrix>
+        <feBlend in="SourceGraphic" in2="goo" result="mix"></feBlend>
+      </filter>
+    </defs>
+  </svg>
+  <script src="js/products.js"></script>
+  <script src="js/gear.js"></script>
+  <script src="js/btn-slide.js"></script>
+  <script src="js/blob-anim.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Local Claude / agent config
+.claude/
+.agents/
+claude-frontend-skills/
+skills-lock.json
+
+# Reference material (large / not part of the webapp)
+_reference/
+_nextreference/
+CamKit.fig/
+camkit_mock_reference.html
+
+# Stray dirs
+%USERPROFILE%/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Node (in case)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

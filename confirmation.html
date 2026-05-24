@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Sent | CamKit Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/Logo.svg">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="CamKit home">
+        <img src="assets/icons/Logo.svg" alt="CamKit" class="logo__img">
+        
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link active" data-label="rentals"><span class="nav__link-text">rentals</span></a>
+        <a href="index.html#events" class="nav__link" data-label="events"><span class="nav__link-text">events</span></a>
+        <a href="about.html" class="nav__link" data-label="about"><span class="nav__link-text">about</span></a>
+      </nav>
+
+      <button class="cart-btn" aria-label="View cart">
+        <img src="assets/icons/Cart.svg" alt="">
+        <span class="cart-btn__label">cart</span>
+        <span class="cart-btn__count" id="cartCount">0</span>
+      </button>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="confirmation-v2">
+    <div class="container">
+      <a href="index.html" class="booking-back-btn" aria-label="Back to rentals">
+        <img src="assets/icons/Back.svg" alt="">
+      </a>
+
+      <!-- 3-step Stepper (all done state) -->
+      <div class="stepper-v2">
+        <div class="stepper-v2__step stepper-v2__step--done">
+          <div class="stepper-v2__num">1</div>
+          <span class="stepper-v2__label">fulfilment</span>
+        </div>
+        <div class="stepper-v2__line stepper-v2__line--done"></div>
+        <div class="stepper-v2__step stepper-v2__step--done">
+          <div class="stepper-v2__num">2</div>
+          <span class="stepper-v2__label">your details</span>
+        </div>
+        <div class="stepper-v2__line stepper-v2__line--done"></div>
+        <div class="stepper-v2__step stepper-v2__step--active-orange">
+          <div class="stepper-v2__num">3</div>
+          <span class="stepper-v2__label">payment</span>
+        </div>
+      </div>
+
+      <div class="confirmation-v2__layout">
+        <!-- Success column -->
+        <div class="confirmation-v2__success">
+          <div class="success-box">
+            <img src="assets/icons/Check mark.svg" alt="">
+          </div>
+          <h1 class="confirmation-v2__title">hey <span id="customerName">there</span> - send request</h1>
+          <p class="confirmation-v2__text">your gear is locked in. you'll receive a confirmation email and whatsapp message within a few minutes.</p>
+          <div class="booking-id-pill">BOOKING ID: <span id="bookingId">CK-2025-04182</span></div>
+        </div>
+
+        <!-- Booking summary -->
+        <aside class="confirmation-v2__summary">
+          <div class="summary-card">
+            <div class="cart-sidebar__title">BOOKING SUMMARY</div>
+            <div class="cart-items" id="bookingCartItems"></div>
+
+            <div class="period-block">
+              <div class="period-block__label">PERIOD</div>
+              <div class="period-grid">
+                <div class="period-grid__item">
+                  <span class="period-grid__name">PICK-UP</span>
+                  <span class="period-grid__value" id="summaryPickup">21 apr</span>
+                </div>
+                <div class="period-grid__item">
+                  <span class="period-grid__name">RETURN</span>
+                  <span class="period-grid__value" id="summaryDropoff">22 apr</span>
+                </div>
+                <div class="period-grid__item">
+                  <span class="period-grid__name">DURATION</span>
+                  <span class="period-grid__value"><span id="summaryDays">1</span> day</span>
+                </div>
+                <div class="period-grid__item">
+                  <span class="period-grid__name">FULFILMENT</span>
+                  <span class="period-grid__value" id="summaryDelivery">self-pickup</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cart-totals">
+              <div class="cart-total-row">
+                <span class="cart-total-row__label">Total Products</span>
+                <span class="cart-total-row__value cart-total-row__value--orange">
+                  <span id="totalProducts">0</span> Products
+                </span>
+              </div>
+              <div class="cart-total-row">
+                <span class="cart-total-row__label cart-total-row__label--muted">total days</span>
+                <span class="cart-total-row__value"><span id="totalDays">1</span> day</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- What happens next -->
+        <aside class="confirmation-v2__next">
+          <div class="next-card">
+            <div class="cart-sidebar__title">WHAT HAPPENS NEXT</div>
+
+            <ol class="next-list">
+              <li class="next-list__item">
+                <span class="next-list__icon next-list__icon--sage">
+                  <img src="assets/icons/WhatsApp.svg" alt="">
+                </span>
+                <div>
+                  <h4>send the WhatsApp message</h4>
+                  <p>send directly from the website.</p>
+                </div>
+              </li>
+              <li class="next-list__item">
+                <span class="next-list__icon">
+                  <img src="assets/icons/Call.svg" alt="">
+                </span>
+                <div>
+                  <h4>we confirm within 1hr</h4>
+                  <p>we confirm and pack for you.</p>
+                </div>
+              </li>
+              <li class="next-list__item">
+                <span class="next-list__icon">
+                  <img src="assets/icons/Doc.svg" alt="">
+                </span>
+                <div>
+                  <h4>bring 2 original Gov. ID's</h4>
+                  <p>carry ID's mandatorily without fail.</p>
+                </div>
+              </li>
+              <li class="next-list__item">
+                <span class="next-list__icon">
+                  <img src="assets/icons/Rupee.svg" alt="">
+                </span>
+                <div>
+                  <h4>pay via UPI at handover</h4>
+                  <p>pay with UPI or cash.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+
+      <a href="#" id="sendWhatsappBtn" class="confirm-booking-btn confirmation-v2__home">
+        send request
+        <img src="assets/icons/Arrow.svg" alt="">
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__column">
+          <h3 class="footer__column-title">CAMKIT RENTALS</h3>
+          <ul class="footer__list">
+            <li><a href="index.html">cameras</a></li>
+            <li><a href="index.html">lenses & filters</a></li>
+            <li><a href="index.html">lighting kits</a></li>
+            <li><a href="index.html">audio gears</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h3 class="footer__column-title">CAMKIT EVENTS</h3>
+          <ul class="footer__list">
+            <li><a href="index.html#events">wedding photography</a></li>
+            <li><a href="index.html#events">corporate events</a></li>
+            <li><a href="index.html#events">pre-wedding shoots</a></li>
+            <li><a href="index.html#events">portrait sessions</a></li>
+            <li><a href="index.html#events">portfolio</a></li>
+          </ul>
+        </div>
+        <div class="footer__column contact-col">
+          <h3 class="footer__column-title">CONTACT</h3>
+          <div class="footer__contact">
+            <div class="footer__contact-row"><span>jp nagar phase 5</span></div>
+            <div class="footer__contact-row"><span>bengaluru, karnataka</span></div>
+            <div class="footer__contact-row"><span>+ 91 82960 75277</span></div>
+            <div class="footer__contact-row"><span>camkitr@gmail.com</span></div>
+          </div>
+        </div>
+        <div class="footer__column company-col">
+          <h3 class="footer__column-title">COMPANY</h3>
+          <ul class="footer__list">
+            <li><a href="about.html">about us</a></li>
+            <li><a href="privacy.html">privacy policy</a></li>
+            <li><a href="terms.html">terms of service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__brand">
+        <div class="footer__logo">CamKit</div>
+        <div class="footer__bottom-row">
+          <p class="footer__copyright">©2026 camkit rentals &amp; events. all rights reserved</p>
+          <p class="footer__credits">Designed by <a href="#" class="footer__credit-link">Mayur Acharya</a> <span class="footer__credit-dot">•</span> Developed by <a href="#" class="footer__credit-link">Manisha Sahu</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/918296075277" class="whatsapp-btn" target="_blank" rel="noopener">
+    <img src="assets/icons/WhatsApp.svg" alt="">
+  </a>
+
+  <script src="js/confirmation.js"></script>
+  <script src="js/btn-slide.js"></script>
+</body>
+</html>
