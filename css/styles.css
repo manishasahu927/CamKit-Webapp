@@ -280,33 +280,24 @@
 
 .hero__rating-card {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  background-color: var(--color-white);
-  padding: 0.875rem 1rem;
-  border-radius: var(--radius-md);
-  max-width: 320px;
-  box-shadow: var(--shadow-md);
+  flex-direction: column;
+  gap: 0.625rem;
+  background: url('../assets/images/Group 33.png') no-repeat center/100% 100%;
+  padding: 2rem 2rem 2rem 1.75rem;
+  max-width: 360px;
   position: relative;
   z-index: 2;
   transform: rotate(-2deg);
 }
 
 .hero__paperclip {
-  position: absolute;
-  width: 28px;
-  height: auto;
-  top: -16px;
-  right: 32px;
-  z-index: 3;
-  pointer-events: none;
-  animation: paperclipWobble 4s ease-in-out infinite;
-  transform-origin: center;
+  display: none;
 }
 
-@keyframes paperclipWobble {
-  0%, 100% { transform: rotate(12deg) translateY(0); }
-  50% { transform: rotate(20deg) translateY(-3px); }
+.hero__rating-top {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
 }
 
 .hero__pointer-arrow {
@@ -324,27 +315,24 @@
 }
 
 .hero__avatar {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid var(--color-white);
-  background-color: var(--color-light-gray);
-  margin-left: -8px;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
+  margin-left: -10px;
   position: relative;
+  display: block;
+  background-color: var(--color-light-gray);
 }
 
-.hero__avatar:first-child { margin-left: 0; }
-.hero__avatar:nth-child(1) { background-color: #4a4a4a; }
-.hero__avatar:nth-child(2) { background-color: #B8916D; }
-.hero__avatar:nth-child(3) { background-color: #6B5544; }
-
-.hero__rating-content {
-  flex: 1;
-}
+.hero__avatar:first-child { margin-left: 0; z-index: 3; }
+.hero__avatar:nth-child(2) { z-index: 2; }
+.hero__avatar:nth-child(3) { z-index: 1; }
 
 .hero__rating-score {
+  font-size: 1.15rem;
+  font-weight: var(--fw-bold);
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -354,9 +342,10 @@
 }
 
 .hero__rating-text {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
-  line-height: 1.4;
+  line-height: 1.45;
+  margin: 0;
 }
 
 .hero__image-wrap {
@@ -5155,12 +5144,13 @@
   .portfolio-lightbox {
     padding: 3rem 1rem 4.5rem;
   }
-  .portfolio-lightbox__close,
-  .portfolio-lightbox__nav {
+  .portfolio-lightbox__close {
     width: 40px;
     height: 40px;
+    top: 0.75rem;
+    right: 0.75rem;
   }
-  .portfolio-lightbox__close { top: 0.75rem; right: 0.75rem; }
-  .portfolio-lightbox__nav--prev { left: 0.5rem; }
-  .portfolio-lightbox__nav--next { right: 0.5rem; }
+  .portfolio-lightbox__nav {
+    display: none;
+  }
 }

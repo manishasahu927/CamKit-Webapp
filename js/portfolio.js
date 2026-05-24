@@ -1,11 +1,10 @@
 (function() {
   'use strict';
 
-  const ASSET_BASE = 'assets/portfolio/Camkit%20images%20(portfolio)/Camkit%20images%20(portfolio)/';
-
   const SHOOTS = [
     {
-      id: 'bridal',
+      id: 'box-1',
+      box: 'BOX-1',
       title: 'Bridal Portraits',
       label: 'bridal shoot',
       images: [
@@ -14,37 +13,39 @@
         '650220951_17934911988037593_3342181569541373892_n..jpg',
         '650605335_17941741581148983_7571216080154770792_n..jpg',
         '627544485_18206855461319304_7710843968448175211_n..jpg',
-        '628321535_18133836643448253_5308302712400279005_n..jpg'
+        '628321535_18133836643448253_5308302712400279005_n..jpg',
+        '623505998_18315311491301581_5177751244457562321_n..jpg',
+        '624560206_17992738799747533_770816414781533885_n..jpg'
       ]
     },
     {
-      id: 'engagement',
-      title: 'Engagement Shoots',
+      id: 'box-2',
+      box: 'BOX-2',
+      title: 'Engagement',
       label: 'engagement',
       images: [
         '540754226_17944301943020313_7883384222884340788_n..jpg',
+        '540430852_17944490286020313_6433648317974331648_n..jpg',
         '541124555_17944301835020313_2522248832822107071_n..jpg',
         '542270248_17944395111020313_5146413645117982427_n..jpg',
         '542302386_17944394598020313_3360252565197884789_n..jpg',
-        '542256844_17945371548020313_324131553605255094_n..jpg',
-        '542293560_17945371626020313_2752957835728830520_n..jpg'
+        '542752600_17944490244020313_6626818895185901191_n..jpg'
       ]
     },
     {
-      id: 'studio-fashion',
+      id: 'box-3',
+      box: 'BOX-3',
       title: 'Studio Fashion',
       label: 'model shoot',
       images: [
         '625834542_18111597577639928_8435158021094618367_n..jpg',
         '623293830_18076321007367494_1123491731995571553_n..jpg',
-        '621590197_17934390513018250_8790083107911968214_n..jpg',
-        '623505998_18315311491301581_5177751244457562321_n..jpg',
-        '624560206_17992738799747533_770816414781533885_n..jpg',
-        '628345016_18404994052134766_9076635296754269030_n..jpg'
+        '621590197_17934390513018250_8790083107911968214_n..jpg'
       ]
     },
     {
-      id: 'portraits',
+      id: 'box-4',
+      box: 'BOX-4',
       title: 'Portrait Sessions',
       label: 'portrait session',
       images: [
@@ -52,29 +53,32 @@
         '651149816_17917271388296378_4990654444341097869_n..jpg',
         '651587527_17965916358031639_8166736359068394730_n..jpg',
         '657178270_18076855421125034_5163752608158645280_n..jpg',
-        '540430852_17944490286020313_6433648317974331648_n..jpg',
-        '542752600_17944490244020313_6626818895185901191_n..jpg'
+        '628345016_18404994052134766_9076635296754269030_n..jpg'
       ]
     },
     {
-      id: 'reception',
-      title: 'Reception Coverage',
+      id: 'box-5',
+      box: 'BOX-5',
+      title: 'Reception',
       label: 'reception',
       images: [
         '544048982_17945371617020313_8305139332429585789_n..jpg',
         '543820404_17945371677020313_4977652254102163323_n..jpg',
-        '576507758_17951942514020313_6682076816337405206_n..jpg',
-        '580109252_17952092529020313_6312474144996008319_n..jpg',
-        '580478447_17952093906020313_8019818176731872437_n..jpg',
-        '580490698_17952093609020313_6076408210587854631_n..jpg'
+        '542293560_17945371626020313_2752957835728830520_n..jpg',
+        '542256844_17945371548020313_324131553605255094_n..jpg'
       ]
     },
     {
-      id: 'candid',
+      id: 'box-6',
+      box: 'BOX-6',
       title: 'Candid Moments',
       label: 'candid moments',
       images: [
         '580805550_17952093981020313_3529413482698183096_n..jpg',
+        '576507758_17951942514020313_6682076816337405206_n..jpg',
+        '580109252_17952092529020313_6312474144996008319_n..jpg',
+        '580478447_17952093906020313_8019818176731872437_n..jpg',
+        '580490698_17952093609020313_6076408210587854631_n..jpg',
         '580836828_17952093915020313_3676832241936089502_n..jpg',
         '581335892_17952093711020313_7064274980342480280_n..jpg',
         '581554848_17952093627020313_2126482088452674972_n..jpg',
@@ -86,8 +90,8 @@
   let currentShoot = null;
   let currentIndex = 0;
 
-  function imgUrl(filename) {
-    return ASSET_BASE + encodeURIComponent(filename);
+  function imgUrl(box, filename) {
+    return 'assets/portfolio/' + encodeURIComponent(box) + '/' + encodeURIComponent(filename);
   }
 
   function renderGrid() {
@@ -95,7 +99,7 @@
     if (!grid) return;
     grid.innerHTML = SHOOTS.map((shoot) => `
       <figure class="portfolio__item-wrap portfolio__shoot-card" data-shoot-id="${shoot.id}" tabindex="0" role="button" aria-label="View ${shoot.title} (${shoot.images.length} photos)">
-        <img src="${imgUrl(shoot.images[0])}" alt="${shoot.title}" class="portfolio__item" loading="lazy">
+        <img src="${imgUrl(shoot.box, shoot.images[0])}" alt="${shoot.title}" class="portfolio__item" loading="lazy">
         <figcaption class="portfolio__caption">${shoot.label}</figcaption>
       </figure>
     `).join('');
@@ -117,7 +121,7 @@
     if (!strip) return;
     strip.innerHTML = currentShoot.images.map((src, i) => `
       <div class="portfolio-lightbox__slide" data-index="${i}">
-        <img src="${imgUrl(src)}" alt="${currentShoot.title} photo ${i + 1}" loading="lazy">
+        <img src="${imgUrl(currentShoot.box, src)}" alt="${currentShoot.title} photo ${i + 1}" loading="lazy">
       </div>
     `).join('');
     strip.querySelectorAll('.portfolio-lightbox__slide').forEach(slide => {
