@@ -68,7 +68,7 @@
       </div>
 
       <div class="booking-v2__layout">
-        <form class="booking-v2__form" id="bookingForm">
+        <form class="booking-v2__form" id="bookingForm" novalidate>
           <!-- Step 1: Fulfilment -->
           <div class="booking-card">
             <span class="booking-card__step">STEP 1 &mdash; FULFILMENT</span>
@@ -142,15 +142,15 @@
             <p class="booking-card__hint">we'll use this to confirm your booking via whatsapp.</p>
 
             <div class="form-row">
-              <input type="text" id="fullName" name="fullName" placeholder="full name" class="form-input" required>
+              <input type="text" id="fullName" name="fullName" placeholder="full name" class="form-input" autocomplete="name">
               <div class="form-input-prefix">
                 <span class="form-input-prefix__label">+91</span>
-                <input type="tel" id="phone" name="phone" placeholder="WhatsApp number" class="form-input" required>
+                <input type="tel" id="phone" name="phone" placeholder="WhatsApp number" class="form-input" inputmode="numeric" maxlength="10" autocomplete="tel-national">
               </div>
             </div>
 
             <label class="govt-id-check">
-              <input type="checkbox" id="govtIdCheck" required>
+              <input type="checkbox" id="govtIdCheck">
               <span class="govt-id-check__box"></span>
               <div class="govt-id-check__content">
                 <span class="govt-id-check__title">
@@ -291,7 +291,7 @@
     <img src="assets/icons/WhatsApp.svg" alt="">
   </a>
 
-  <script src="js/booking.js"></script>
+  <script src="js/booking.js?v=2"></script>
   <script src="js/btn-slide.js"></script>
 </body>
 </html>

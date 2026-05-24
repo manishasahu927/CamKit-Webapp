@@ -2,6 +2,7 @@
   'use strict';
 
   const STORAGE_KEY = 'camkit_cart';
+  const DATES_KEY = 'camkit_dates';
   let cart = [];
   let currentCategory = 'all';
 
@@ -14,10 +15,22 @@
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); } catch (e) {}
   }
 
+  function getDays() {
+    try {
+      const dates = JSON.parse(localStorage.getItem(DATES_KEY));
+      if (!dates || !dates.pickup || !dates.dropoff) return 1;
+      const pickup = new Date(dates.pickup);
+      const dropoff = new Date(dates.dropoff);
+      const diff = Math.ceil((dropoff - pickup) / (1000 * 60 * 60 * 24));
+      return diff > 0 ? diff : 1;
+    } catch (e) { return 1; }
+  }
+
   function init() {
     loadCart();
     document.getElementById('cartCount').textContent = cart.length;
     renderProducts();
+    renderCart();
 
     document.querySelectorAll('.category-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -30,6 +43,52 @@
 
     setupHeader();
     bindProductModalClose();
+
+    const confirmBtn = document.getElementById('confirmBookingBtn');
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', () => {
+        if (cart.length === 0) return;
+        window.location.href = 'booking.html';
+      });
+    }
+  }
+
+  function renderCart() {
+    const days = getDays();
+    const cartItems = document.getElementById('cartItems');
+    const totalProductsEl = document.getElementById('totalProducts');
+    const totalDaysEl = document.getElementById('totalDays');
+    const confirmBtn = document.getElementById('confirmBookingBtn');
+
+    if (totalProductsEl) totalProductsEl.textContent = cart.length;
+    if (totalDaysEl) totalDaysEl.textContent = days;
+
+    if (cartItems) {
+      cartItems.innerHTML = cart.length === 0
+        ? '<div class="cart-empty">Your cart is empty</div>'
+        : cart.map(item => `
+            <div class="cart-item">
+              <span class="cart-item__name">${item.name}</span>
+              <span class="cart-item__days">${days} day${days > 1 ? 's' : ''}</span>
+              <button class="cart-item__remove" data-id="${item.id}" aria-label="Remove">
+                <img src="assets/icons/Close.svg" alt="">
+              </button>
+            </div>
+          `).join('');
+      cartItems.querySelectorAll('.cart-item__remove').forEach(btn => {
+        btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
+      });
+    }
+
+    if (confirmBtn) confirmBtn.disabled = cart.length === 0;
+  }
+
+  function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    saveCart();
+    document.getElementById('cartCount').textContent = cart.length;
+    renderProducts();
+    renderCart();
   }
 
   function renderProducts() {
@@ -118,6 +177,7 @@
     saveCart();
     document.getElementById('cartCount').textContent = cart.length;
     renderProducts();
+    renderCart();
   }
 
   function setupHeader() {

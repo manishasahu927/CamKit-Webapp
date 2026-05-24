@@ -59,16 +59,39 @@
   <section class="step-section">
     <div class="container">
       <div class="category-tabs" role="tablist">
-        <button class="category-tab active" data-category="all" role="tab">All</button>
-        <button class="category-tab" data-category="cameras" role="tab">Cameras</button>
-        <button class="category-tab" data-category="lenses" role="tab">Lenses</button>
-        <button class="category-tab" data-category="lighting" role="tab">Lighting</button>
-        <button class="category-tab" data-category="audio" role="tab">Audio</button>
+        <button class="category-tab active" data-category="all" role="tab">all</button>
+        <button class="category-tab" data-category="cameras" role="tab">cameras</button>
+        <button class="category-tab" data-category="lenses" role="tab">lenses</button>
+        <button class="category-tab" data-category="lighting" role="tab">lighting</button>
+        <button class="category-tab" data-category="audio" role="tab">audio</button>
         <button class="category-tab" data-category="other" role="tab">other equipments</button>
       </div>
 
-      <div class="gear-layout">
-        <div class="products-grid products-grid--full" id="productsGrid"></div>
+      <div class="products-layout">
+        <div>
+          <div class="products-grid" id="productsGrid"></div>
+        </div>
+
+        <aside class="cart-sidebar" id="cartSidebar">
+          <div class="cart-sidebar__title">YOUR CART</div>
+
+          <div class="cart-items" id="cartItems">
+            <div class="cart-empty">Your cart is empty</div>
+          </div>
+
+          <div class="cart-totals">
+            <div class="cart-total-row">
+              <span class="cart-total-row__label">Total Products</span>
+              <span class="cart-total-row__value cart-total-row__value--orange"><span id="totalProducts">0</span> Products</span>
+            </div>
+            <div class="cart-total-row">
+              <span class="cart-total-row__label cart-total-row__label--muted">total days</span>
+              <span class="cart-total-row__value"><span id="totalDays">1</span> day</span>
+            </div>
+          </div>
+
+          <button class="confirm-booking-btn" id="confirmBookingBtn" disabled>confirm booking <img src="assets/icons/Arrow.svg" alt=""></button>
+        </aside>
       </div>
     </div>
   </section>

@@ -5,8 +5,8 @@
     {
       id: 'box-1',
       box: 'BOX-1',
-      title: 'Bridal Portraits',
-      label: 'bridal shoot',
+      title: 'Model Shoot',
+      label: 'model shoot',
       images: [
         '662498777_18454678351128658_453336494202176049_n..jpg',
         '655499206_18081791675368163_960352428651247976_n..jpg',
@@ -21,8 +21,8 @@
     {
       id: 'box-2',
       box: 'BOX-2',
-      title: 'Engagement',
-      label: 'engagement',
+      title: 'Baby Photoshoot',
+      label: 'baby photoshoot',
       images: [
         '540754226_17944301943020313_7883384222884340788_n..jpg',
         '540430852_17944490286020313_6433648317974331648_n..jpg',
@@ -46,8 +46,8 @@
     {
       id: 'box-4',
       box: 'BOX-4',
-      title: 'Portrait Sessions',
-      label: 'portrait session',
+      title: 'DJ Photoshoot',
+      label: 'dj photoshoot',
       images: [
         '649225793_17897850102405505_2098036035425219976_n..jpg',
         '651149816_17917271388296378_4990654444341097869_n..jpg',
@@ -59,8 +59,8 @@
     {
       id: 'box-5',
       box: 'BOX-5',
-      title: 'Reception',
-      label: 'reception',
+      title: 'Couple Shoot',
+      label: 'couple shoot',
       images: [
         '544048982_17945371617020313_8305139332429585789_n..jpg',
         '543820404_17945371677020313_4977652254102163323_n..jpg',
@@ -71,8 +71,8 @@
     {
       id: 'box-6',
       box: 'BOX-6',
-      title: 'Candid Moments',
-      label: 'candid moments',
+      title: 'Jewelery Shoot',
+      label: 'jewelery shoot',
       images: [
         '580805550_17952093981020313_3529413482698183096_n..jpg',
         '576507758_17951942514020313_6682076816337405206_n..jpg',
