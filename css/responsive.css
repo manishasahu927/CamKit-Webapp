@@ -246,19 +246,26 @@
     order: 2;
     min-height: 0;
     margin-top: -1.5rem;
-    justify-content: center;
+    margin-right: calc(var(--container-padding) * -1);
+    justify-content: flex-end;
+    overflow: visible;
+  }
+
+  .hero__image {
+    margin-right: 0;
+    transform: translateX(8%);
   }
 
   .hero__star-pink {
     width: 90%;
-    right: auto;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-5deg);
+    right: 0;
+    left: auto;
+    transform: translateY(-50%) rotate(-5deg);
   }
 
   @keyframes rotateStarPink {
-    from { transform: translate(-50%, -50%) rotate(-5deg); }
-    to { transform: translate(-50%, -50%) rotate(355deg); }
+    from { transform: translateY(-50%) rotate(-5deg); }
+    to { transform: translateY(-50%) rotate(355deg); }
   }
 
   .whatsapp-btn {
@@ -831,7 +838,7 @@
 
   .footer__inner {
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem 1.5rem;
+Telegraph devices. Red color Combs a red color. Pakistan to order? Rugbu Mayo Star. Footer. Footer. Netflix. Play Tumchyasathi Kay Pan. Tune into. Euthanasia already was caught with Dikraj. Website to work laptop screen. RPC version may already decrypt already. I added. Hmm hmm. OK dhokat nadi karaj. I'll fix that. Play Silko maneuver. OK the blur is not. OK and then. Anything else? I checked but I checked like whatever your fixes, I checked the. I'm gonna go get rid of these days. Get caught that matter. Page. Click on Cameras will show you all the cameras if you click on. Yeah, that was working. We said Camel. That is a scroll. You can scroll and you can scroll. Switching to Delhi Police to go in. The report for Jupiter as long as I'm in government. India versus England virat Kohli, Ajinkya Rahane lead India fightback in Trent Bridge Test. I didn't get any. Oh, yes, yes, yes. Three images you asked about. ISIS at the top of the world. Because I didn't write it. OK OK. OK. That is, that is done. SSS Highlight the menu. Yeah. Call. OK. You asked me to add the images or remove the images. How will I know which is spring tested? Yes. Is it necessary? Music Mrs.     gap: 2.5rem 1.5rem;
   }
 
   .footer__column-title {

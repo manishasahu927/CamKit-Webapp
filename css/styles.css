@@ -1637,6 +1637,17 @@
   opacity: 1;
 }
 
+.cart-item__remove:disabled,
+.cart-item__remove[disabled] {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.cart-item__remove:disabled:hover,
+.cart-item__remove[disabled]:hover {
+  opacity: 0.25;
+}
+
 .cart-empty {
   text-align: center;
   padding: 1.5rem 0;
@@ -3040,6 +3051,7 @@
 .studio-address__icon img {
   width: 16px;
   height: 16px;
+  filter: brightness(0) saturate(100%) invert(64%) sepia(28%) saturate(700%) hue-rotate(310deg) brightness(95%);
 }
 
 .studio-address__body {

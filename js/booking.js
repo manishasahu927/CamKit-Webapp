@@ -53,28 +53,58 @@
     return Math.max(1, Math.ceil((d - p) / 86400000));
   }
 
-  function init() {
-    const cart = loadCart();
+  let cartState = [];
+
+  function saveCart() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cartState)); } catch (e) {}
+  }
+
+  function renderBookingCart() {
     const dates = loadDates();
     const days = calculateDays(dates);
-
-    document.getElementById('cartCount').textContent = cart.length;
-    document.getElementById('totalProducts').textContent = cart.length;
-    document.getElementById('totalDays').textContent = days;
-
     const cartList = document.getElementById('bookingCartItems');
-    if (cart.length === 0) {
+    const cartCountEl = document.getElementById('cartCount');
+    const totalProductsEl = document.getElementById('totalProducts');
+    const totalDaysEl = document.getElementById('totalDays');
+
+    if (cartCountEl) cartCountEl.textContent = cartState.length;
+    if (totalProductsEl) totalProductsEl.textContent = cartState.length;
+    if (totalDaysEl) totalDaysEl.textContent = days;
+
+    if (!cartList) return;
+
+    if (cartState.length === 0) {
       cartList.innerHTML = '<div class="cart-empty">no items in cart. <a href="index.html" style="color:var(--color-orange);">add some gear</a></div>';
-    } else {
-      cartList.innerHTML = cart.map(item => `
-        <div class="cart-item">
-          <span class="cart-item__name">${item.name}</span>
-          <span class="cart-item__days">${days} day${days > 1 ? 's' : ''}</span>
-        </div>
-      `).join('');
+      return;
     }
 
-    bindEvents(cart);
+    const isLastOne = cartState.length === 1;
+    cartList.innerHTML = cartState.map((item, idx) => `
+      <div class="cart-item">
+        <span class="cart-item__name">${item.name}</span>
+        <span class="cart-item__days">${days} day${days > 1 ? 's' : ''}</span>
+        <button class="cart-item__remove" data-idx="${idx}" aria-label="Remove ${item.name}"${isLastOne ? ' disabled title="at least 1 item is required for booking"' : ''}>
+          <img src="assets/icons/Cancel.svg" alt="">
+        </button>
+      </div>
+    `).join('');
+
+    cartList.querySelectorAll('.cart-item__remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        const idx = parseInt(btn.dataset.idx, 10);
+        if (Number.isNaN(idx)) return;
+        cartState.splice(idx, 1);
+        saveCart();
+        renderBookingCart();
+      });
+    });
+  }
+
+  function init() {
+    cartState = loadCart();
+    renderBookingCart();
+    bindEvents();
   }
 
   function updateStepper() {
@@ -108,7 +138,7 @@
     });
   }
 
-  function bindEvents(cart) {
+  function bindEvents() {
     const form = document.getElementById('bookingForm');
 
     document.querySelectorAll('input[name="fulfilment"]').forEach(input => {
@@ -150,7 +180,7 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      if (cart.length === 0) {
+      if (cartState.length === 0) {
         showToast('your cart is empty. add some gear first.', 'error');
         setTimeout(() => { window.location.href = 'index.html'; }, 1400);
         return;

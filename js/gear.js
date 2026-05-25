@@ -95,7 +95,7 @@
             <span class="cart-item__name">${item.name}</span>
             <span class="cart-item__days">${days} day${days > 1 ? 's' : ''}</span>
             <button class="cart-item__remove" data-id="${item.id}" aria-label="Remove">
-              <img src="assets/icons/Close.svg" alt="">
+              <img src="assets/icons/Cancel.svg" alt="">
             </button>
           </div>
         `).join('');
