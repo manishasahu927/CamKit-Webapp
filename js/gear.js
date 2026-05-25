@@ -43,6 +43,7 @@
 
     setupHeader();
     bindProductModalClose();
+    bindCartModal();
 
     const confirmBtn = document.getElementById('confirmBookingBtn');
     if (confirmBtn) {
@@ -53,34 +54,73 @@
     }
   }
 
-  function renderCart() {
-    const days = getDays();
-    const cartItems = document.getElementById('cartItems');
-    const totalProductsEl = document.getElementById('totalProducts');
-    const totalDaysEl = document.getElementById('totalDays');
-    const confirmBtn = document.getElementById('confirmBookingBtn');
-
-    if (totalProductsEl) totalProductsEl.textContent = cart.length;
-    if (totalDaysEl) totalDaysEl.textContent = days;
-
-    if (cartItems) {
-      cartItems.innerHTML = cart.length === 0
-        ? '<div class="cart-empty">Your cart is empty</div>'
-        : cart.map(item => `
-            <div class="cart-item">
-              <span class="cart-item__name">${item.name}</span>
-              <span class="cart-item__days">${days} day${days > 1 ? 's' : ''}</span>
-              <button class="cart-item__remove" data-id="${item.id}" aria-label="Remove">
-                <img src="assets/icons/Close.svg" alt="">
-              </button>
-            </div>
-          `).join('');
-      cartItems.querySelectorAll('.cart-item__remove').forEach(btn => {
-        btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
+  function bindCartModal() {
+    const cartModal = document.getElementById('cartModal');
+    const cartToggle = document.getElementById('cartToggle');
+    if (cartToggle && cartModal) {
+      cartToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        cartModal.hidden = false;
+        document.body.style.overflow = 'hidden';
+      });
+      cartModal.querySelectorAll('[data-close]').forEach(el => {
+        el.addEventListener('click', () => {
+          cartModal.hidden = true;
+          document.body.style.overflow = '';
+        });
+      });
+      document.addEventListener('keydown', (e) => {
+        if (!cartModal.hidden && e.key === 'Escape') {
+          cartModal.hidden = true;
+          document.body.style.overflow = '';
+        }
       });
     }
 
-    if (confirmBtn) confirmBtn.disabled = cart.length === 0;
+    const confirmBookingBtnModal = document.getElementById('confirmBookingBtnModal');
+    if (confirmBookingBtnModal) {
+      confirmBookingBtnModal.addEventListener('click', () => {
+        if (cart.length === 0) return;
+        window.location.href = 'booking.html';
+      });
+    }
+  }
+
+  function renderCart() {
+    const days = getDays();
+    const itemsHtml = cart.length === 0
+      ? '<div class="cart-empty">Your cart is empty</div>'
+      : cart.map(item => `
+          <div class="cart-item">
+            <span class="cart-item__name">${item.name}</span>
+            <span class="cart-item__days">${days} day${days > 1 ? 's' : ''}</span>
+            <button class="cart-item__remove" data-id="${item.id}" aria-label="Remove">
+              <img src="assets/icons/Close.svg" alt="">
+            </button>
+          </div>
+        `).join('');
+
+    ['cartItems', 'cartItemsModal'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.innerHTML = itemsHtml;
+      el.querySelectorAll('.cart-item__remove').forEach(btn => {
+        btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
+      });
+    });
+
+    ['totalProducts', 'totalProductsModal'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = cart.length;
+    });
+    ['totalDays', 'totalDaysModal'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = days;
+    });
+    ['confirmBookingBtn', 'confirmBookingBtnModal'].forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) btn.disabled = cart.length === 0;
+    });
   }
 
   function removeFromCart(productId) {
@@ -183,13 +223,49 @@
   function setupHeader() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const nav = document.getElementById('nav');
-    if (mobileMenuBtn) {
+    let overlay = null;
+
+    function ensureChrome() {
+      if (!nav) return;
+      if (nav.parentElement !== document.body) {
+        document.body.appendChild(nav);
+      }
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'mobile-nav-overlay';
+        overlay.addEventListener('click', closeMenu);
+        document.body.appendChild(overlay);
+      }
+      if (!nav.querySelector('.mobile-nav-close')) {
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'mobile-nav-close';
+        closeBtn.setAttribute('aria-label', 'Close menu');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.addEventListener('click', closeMenu);
+        nav.prepend(closeBtn);
+      }
+    }
+
+    function closeMenu() {
+      if (!nav) return;
+      nav.classList.remove('open');
+      mobileMenuBtn?.classList.remove('active');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      if (overlay) overlay.classList.remove('open');
+    }
+
+    if (mobileMenuBtn && nav) {
       mobileMenuBtn.addEventListener('click', () => {
+        ensureChrome();
         const isOpen = nav.classList.toggle('open');
         mobileMenuBtn.classList.toggle('active');
+        mobileMenuBtn.setAttribute('aria-expanded', isOpen);
         document.body.style.overflow = isOpen ? 'hidden' : '';
+        if (overlay) overlay.classList.toggle('open', isOpen);
       });
     }
+
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
       if (window.scrollY > 20) header.classList.add('scrolled');
